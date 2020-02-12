@@ -14,7 +14,7 @@ const boxStyles = createUseStyles({
 
 const ColorBox = ({ ...props }) => {
   const classes = boxStyles(props);
-  const { className, id, dataCode, onDragStart, onDragOver, onDrop } = props;
+  const { className, id, background, onDragStart, onDragOver, onDrop } = props;
 
   return (
     <span
@@ -24,7 +24,7 @@ const ColorBox = ({ ...props }) => {
       onDragOver={onDragOver}
       onDrop={onDrop}
       draggable
-      data-color={dataCode}
+      data-color={background}
     />
   );
 };
@@ -35,6 +35,7 @@ ColorBox.propTypes = {
   onDragStart: PropTypes.func,
   onDragOver: PropTypes.func,
   onDrop: PropTypes.func,
+  background: PropTypes.string,
 };
 
 ColorBox.defaultProps = {
@@ -43,6 +44,7 @@ ColorBox.defaultProps = {
   onDragStart: () => {},
   onDragOver: () => {},
   onDrop: () => {},
+  background: "#000000",
 };
 
 export default ColorBox;

@@ -38,7 +38,6 @@ const Square = ({ length, colorList }) => {
       })
       .map(colorCode => (
         <ColorBox
-          dataCode={colorCode}
           key={colorCode}
           background={colorCode}
           onDragOver={onDragOver}

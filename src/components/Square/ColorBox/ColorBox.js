@@ -14,7 +14,7 @@ const boxStyles = createUseStyles({
 
 const ColorBox = ({ ...props }) => {
   const classes = boxStyles(props);
-  const { className, id, onDragStart, onDragOver, onDrop } = props;
+  const { className, id, dataCode, onDragStart, onDragOver, onDrop } = props;
 
   return (
     <span
@@ -24,6 +24,7 @@ const ColorBox = ({ ...props }) => {
       onDragOver={onDragOver}
       onDrop={onDrop}
       draggable
+      data-color={dataCode}
     />
   );
 };

@@ -2,4 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  background: rgb(121, 78, 150);
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:hover, &:focus, &:not(:disabled):not(.disabled):active {
+    background: rgb(92, 59, 114);
+  }
 }

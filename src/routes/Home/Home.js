@@ -15,7 +15,7 @@ const Home = () => (
           <div className={s.container}>
             <div className={s.box}>
               <h1 className={s.title}>Colorful Box Swapper</h1>
-              <Button>
+              <Button className={s.button}>
                 <Link to="/generate">Generate colorful box</Link>
               </Button>
             </div>

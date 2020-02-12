@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Row, Col } from "reactstrap";
+import classnames from "classnames";
 
 import Layout from "../../components/Layout";
 import Button from "../../components/Button";
 import Square from "../../components/Square/Square";
-import { generateRandomColor } from "../../components/Square/utilities";
 import ColorBox from "../../components/Square/ColorBox";
+import { generateRandomColor } from "../../utilities";
 
 import s from "./Generate.module.scss";
 
@@ -34,17 +35,28 @@ export default class Generate extends Component {
     return (
       <Layout>
         <Row>
-          <Col xs="12" md="6">
-            <Button onClick={this.changeColor} value="Generate random color" />
-            <ColorBox
-              id="selectColor"
-              className={s.replaceBox}
-              background={replaceColor}
-              onDragStart={this.onDragStart}
-            />
-          </Col>
-          <Col xs="12" md="6">
-            <Square length={8} />
+          <Col>
+            <div className={classnames(s.container, s.centerFloat)}>
+              <div>
+                <div className={s.buttonContainer}>
+                  <Button
+                    className={classnames(s.button, s.shadow)}
+                    onClick={this.changeColor}
+                  >
+                    <h4>Generate random color</h4>
+                  </Button>
+                </div>
+                <ColorBox
+                  className={classnames(s.replaceBox, s.shadow)}
+                  background={replaceColor}
+                  onDragStart={this.onDragStart}
+                />
+                <div className={s.arrow} />
+                <div className={s.shadow}>
+                  <Square length={8} />
+                </div>
+              </div>
+            </div>
           </Col>
         </Row>
       </Layout>

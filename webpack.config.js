@@ -8,11 +8,13 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
+    historyApiFallback: true,
     port: 8000,
   },
   entry: "./src/app.js",
   output: {
     path: path.join(__dirname, "/dist/"),
+    // publicPath: "/",
     filename: "js/app.js",
   },
   module: {
@@ -101,7 +103,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: false,
       title: "Colorful Box Swapper",
-      template: "./src/index.html",
+      template: "./src/public/index.html",
     }),
   ],
   stats: {

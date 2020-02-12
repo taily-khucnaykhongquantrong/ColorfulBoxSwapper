@@ -5,6 +5,7 @@ import Layout from "../../components/Layout";
 import Button from "../../components/Button";
 
 import s from "./Home.module.scss";
+import Link from "../../components/Link";
 
 const Home = () => (
   <Layout>
@@ -14,7 +15,9 @@ const Home = () => (
           <div className={s.container}>
             <div className={s.box}>
               <h1 className={s.title}>Colorful Box Swapper</h1>
-              <Button value="Generate colorful box" />
+              <Button>
+                <Link to="/generate">Generate colorful box</Link>
+              </Button>
             </div>
           </div>
         </div>

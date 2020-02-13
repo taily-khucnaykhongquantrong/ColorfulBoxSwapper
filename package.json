@@ -6,22 +6,29 @@
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
+    "@testing-library/react": "^9.4.0",
     "autoprefixer": "^9.7.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^3.4.0",
     "cssnano": "^4.1.10",
-    "eslint": "5.16.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-css-modules": "^2.11.0",
     "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jest": "^23.7.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.1.0",
+    "jest-prop-type-error": "^1.1.0",
     "mini-css-extract-plugin": "^0.8.2",
     "node-sass": "^4.13.0",
     "postcss": "^7.0.25",
@@ -49,6 +56,18 @@
     "universal-router": "^8.3.0",
     "watch": "^1.0.2"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "setupFiles": [
+      "jest-prop-type-error"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>enzyme.js"
+    ]
+  },
   "license": "GPL-3.0",
   "lint-staged": {
     "ignore": [
@@ -75,6 +94,8 @@
     "development": "webpack --mode development",
     "watch": "yarn run development --watch",
     "prod": "yarn run production",
-    "production": "webpack --mode production"
+    "production": "webpack --mode production",
+    "test": "jest",
+    "coverage": "jest --collect-coverage"
   }
 }

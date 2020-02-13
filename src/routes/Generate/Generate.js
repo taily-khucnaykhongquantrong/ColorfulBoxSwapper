@@ -39,9 +39,7 @@ export default class Generate extends Component {
                     <h4>Generate random color</h4>
                   </Button>
                 </div>
-                <div className={s.shadow}>
-                  <Square colorList={colorList} length={8} />
-                </div>
+                <Square className={s.shadow} colorList={colorList} length={8} />
               </div>
             </div>
           </Col>

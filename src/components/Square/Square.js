@@ -5,7 +5,7 @@ import ColorBox from "./ColorBox";
 
 import s from "./Square.module.scss";
 
-const Square = ({ length, colorList }) => {
+const Square = ({ length, colorList, className }) => {
   // Constructor
   const rowList = [...Array(length).keys()];
 
@@ -45,27 +45,31 @@ const Square = ({ length, colorList }) => {
           onDrop={onDrop}
         />
       ));
-  const renderRow = (boxList, rowIndex) => (
-    <div className={s.row} key={rowIndex}>
-      {boxList}
-    </div>
-  );
 
   const element = rowList.map(value => {
     // Index starts from 1
     const rowIndex = value + 1;
     const boxListPerRow = renderBoxPerRow(rowIndex);
-    const rowElement = renderRow(boxListPerRow, rowIndex);
+    const rowElement = (
+      <div className={s.row} key={rowIndex}>
+        {boxListPerRow}
+      </div>
+    );
 
     return rowElement;
   });
 
-  return element;
+  return <div className={className}>{element}</div>;
 };
 
 Square.propTypes = {
   colorList: PropTypes.arrayOf(PropTypes.string).isRequired,
   length: PropTypes.number.isRequired,
+  className: PropTypes.string,
+};
+
+Square.defaultProps = {
+  className: "",
 };
 
 export default Square;

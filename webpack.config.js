@@ -11,11 +11,12 @@ module.exports = {
     historyApiFallback: true,
     port: 8000,
   },
-  entry: "./src/app.js",
+  entry: "src/app.js",
   output: {
-    path: path.join(__dirname, "/dist/"),
+    path: path.join(__dirname, "dist"),
     // publicPath: "/",
-    filename: "js/app.js",
+    filename: "js/[name].js",
+    chunkFilename: "js/[name].js",
   },
   module: {
     rules: [
@@ -94,6 +95,9 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin()],
+    splitChunks: {
+      chunks: "all",
+    },
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -101,7 +105,7 @@ module.exports = {
       chunkFilename: "styles/[id].css",
     }),
     new HtmlWebpackPlugin({
-      inject: false,
+      // inject: false,
       title: "Colorful Box Swapper",
       template: "./src/public/index.html",
     }),
